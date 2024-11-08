@@ -67,6 +67,23 @@ const BackLink = styled(Link)`
     margin-top: ${spacing.large};
 `;
 
+const Button = styled.button`
+    background-color: ${colors.primary};
+    color: white;
+    padding: ${spacing.medium};
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: ${spacing.large};
+    text-align: center; 
+    display: inline-block;
+    text-decoration: none; 
+    &:hover {
+        background-color: ${colors.secondary};
+    }
+`;
+
 function AboutUs() {
     return (
         <Container>
@@ -101,6 +118,7 @@ function AboutUs() {
                     <ProfileInfo>Fun Fact: I like video games</ProfileInfo>
                 </ProfileCard>
             </ProfilesContainer>
+            <Button as={Link} to="/ask-question">Begin by Asking a Question</Button>
             <BackLink to="/">Go Back to Home</BackLink>
         </Container>
     );

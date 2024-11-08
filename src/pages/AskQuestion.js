@@ -10,17 +10,20 @@ const NavBar = styled.div`
     background-color: ${colors.primary};
     color: white;
     display: flex;
-    position: fixed;  // Fix the navbar at the top
+    align-items: center;
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;  // Ensure it stays on top of other elements
+    z-index: 1000;
+    justify-content: flex-start;  // Align links to the left
+    padding-left: 20px;  // Add left padding to the NavBar for spacing
 `;
 
 const NavLink = styled(Link)`
     color: white;
     text-decoration: none;
     font-size: 16px;
-    margin-left: 20px;
+    margin-right: 20px;  // Space links apart on the right side
     &:hover {
         text-decoration: underline;
     }
@@ -88,8 +91,12 @@ function AskQuestion() {
         <Container>
             <NavBar>
                 <NavLink to="/">Home</NavLink>
+                <NavLink to="/signup">Sign Up</NavLink>
+                <NavLink to="/login">Log In</NavLink>
+                <NavLink to="/ask-question">Ask Questions</NavLink> 
+                <NavLink to="/about-us">About Us</NavLink>
             </NavBar>
-            <h2>Ask AI an Ethical Question!</h2>
+            <h2>Ask AI an ethical question!</h2>
             <input 
                 type="text" 
                 placeholder="Enter Question" 

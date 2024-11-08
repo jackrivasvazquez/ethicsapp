@@ -9,19 +9,47 @@ import haileyImage from '../assets/images/hailey.png';
 import jackImage from '../assets/images/jack.png';
 import mayaImage from '../assets/images/maya.png';
 
+// Define the NavBar styled component
+const NavBar = styled.div`
+    width: 100%;
+    padding: ${spacing.small};
+    background-color: ${colors.primary};
+    color: white;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    justify-content: flex-start;  // Align links to the left
+    padding-left: 20px;  // Add left padding to the NavBar for spacing
+`;
+
+const NavLink = styled(Link)`
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin-right: 20px;  // Space links apart on the right side
+    &:hover {
+        text-decoration: underline;
+    }
+`;
+
+// Add padding-top to prevent overlap with fixed nav bar
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: ${colors.background};
     padding: ${spacing.large};
+    padding-top: calc(${spacing.large} + 50px);  // Add extra padding at the top to avoid overlap
     min-height: 100vh;
 `;
 
 const Title = styled.h2`
     font-size: 2em;
     color: ${colors.primary};
-    margin-bottom: ${spacing.large};
+    margin-bottom: 40px;
 `;
 
 const ProfilesContainer = styled.div`
@@ -70,12 +98,12 @@ const BackLink = styled(Link)`
 const Button = styled.button`
     background-color: ${colors.primary};
     color: white;
-    padding: ${spacing.medium};
+    padding: 11px 18px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: ${spacing.large};
+    margin-top: 40px;
     text-align: center; 
     display: inline-block;
     text-decoration: none; 
@@ -87,6 +115,14 @@ const Button = styled.button`
 function AboutUs() {
     return (
         <Container>
+            <NavBar>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/signup">Sign Up</NavLink>
+                <NavLink to="/login">Log In</NavLink>
+                <NavLink to="/ask-question">Ask Questions</NavLink> 
+                <NavLink to="/about-us">About Us</NavLink>
+            </NavBar>
+            
             <Title>Team Profile</Title>
             <ProfilesContainer>
                 {/* Profile 1 */}
@@ -119,7 +155,6 @@ function AboutUs() {
                 </ProfileCard>
             </ProfilesContainer>
             <Button as={Link} to="/ask-question">Begin by Asking a Question</Button>
-            <BackLink to="/">Go Back to Home</BackLink>
         </Container>
     );
 }

@@ -79,6 +79,10 @@ function Results() {
         <Container>
             <NavBar>
                 <NavLink to="/">Home</NavLink>
+                <NavLink to="/signup">Sign Up</NavLink>
+                <NavLink to="/login">Log In</NavLink>
+                <NavLink to="/ask-question">Ask Questions</NavLink> 
+                <NavLink to="/about-us">About Us</NavLink>
             </NavBar>
 
             <Card>

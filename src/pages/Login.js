@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors, spacing } from '../theme';
-import { useAuth } from '../AuthContext';  // Import useAuth to access login state
+
 
 // Define the NavBar styled component
 const NavBar = styled.div`
@@ -78,16 +78,9 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const { login } = useAuth();  // Destructure login function
 
     const handleLogin = (e) => {
         e.preventDefault();
-        if (email && password) {
-            login();  // Set user as logged in
-            navigate('/about-us');
-        } else {
-            alert("Please enter valid credentials.");
-        }
 
         // Retrieve stored credentials from localStorage
         const storedEmail = localStorage.getItem('userEmail');

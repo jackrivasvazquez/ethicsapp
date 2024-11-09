@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors, spacing } from './theme';
-import { useAuth } from './AuthContext';  // Import the useAuth hook
+// import { useAuth } from './AuthContext';  // Import the useAuth hook
 
 // Define the NavBar styled component
 const NavBar = styled.div`
@@ -84,7 +84,7 @@ const Button = styled(Link)`
 `;
 
 function Home() {
-    const { isLoggedIn } = useAuth();  // Get login status from AuthContext
+    // const { isLoggedIn } = useAuth();  // Get login status from AuthContext
 
     return (
         <Container>
@@ -92,12 +92,15 @@ function Home() {
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/signup">Sign Up</NavLink>
                 <NavLink to="/login">Log In</NavLink>
-                {isLoggedIn && (
+                <NavLink to="/ask-question">Ask Questions</NavLink>
+                <NavLink to="/about-us">About Us</NavLink>
+
+                {/* {isLoggedIn && (
                     <>
                         <NavLink to="/ask-question">Ask Questions</NavLink>
                         <NavLink to="/about-us">About Us</NavLink>
                     </>
-                )}
+                )} */}
             </NavBar>
 
             <Title>Ethica</Title>

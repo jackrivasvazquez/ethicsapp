@@ -1,42 +1,27 @@
 // src/Routes.js
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import Home from './Home';
+import { Routes, Route } from 'react-router-dom';
+import Home from './Home'; 
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
-import AskQuestion from './pages/AskQuestion';
+import ForgotPassword from './pages/ForgotPassword';
 import AboutUs from './pages/AboutUs';
-import { useAuth } from './AuthContext';  // Import useAuth to check authentication
+import AskQuestion from './pages/AskQuestion';
+import Results from './pages/Results';
 
-// ProtectedRoute component to handle restricted access
-const ProtectedRoute = ({ isLoggedIn, children }) => {
-    return isLoggedIn ? children : <Navigate to="/login" />;
-};
+const isAuthenticated = false; // Replace this with your actual auth logic
 
 const AppRoutes = () => {
-    const { isLoggedIn } = useAuth();  // Get login status from AuthContext
-
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/signup" element={<SignUp />} />
+            <Route path="/" element={<Home />} /> 
+            <Route path="/signup" element={<SignUp />} /> 
             <Route path="/login" element={<Login />} />
-            <Route
-                path="/ask-question"
-                element={
-                    <ProtectedRoute isLoggedIn={isLoggedIn}>
-                        <AskQuestion />
-                    </ProtectedRoute>
-                }
-            />
-            <Route
-                path="/about-us"
-                element={
-                    <ProtectedRoute isLoggedIn={isLoggedIn}>
-                        <AboutUs />
-                    </ProtectedRoute>
-                }
-            />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/ask-question" element={<AskQuestion />} />
+            <Route path="/results" element={<Results />} />
+            
         </Routes>
     );
 };
